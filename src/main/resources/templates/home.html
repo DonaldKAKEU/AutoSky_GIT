@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>AutoCar</title>
+</head>
+<body>
+<header>
+    <div class="container-fluid text-center fw-bolder fs-1 bg-secondary p-2 text-dark bg-opacity-10">
+        <h1>PAGE D'ACCEUIL</h1><br><br>
+    </div>
+</header>
+<div class="container-fluid rowColor"><h2>Depanages</h2>
+    <table class="table table-success table-striped border border-0"  th:border="2">
+        <thead>
+        <tr class="rowColor">
+            <th class="col">Immatriculation du vehicule</th>
+            <th class="col">Statut du depanage</th>
+            <th class="col">cout du depanage</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="Depanage:${Depanages}">
+
+            <td th:text="${Depanage.immatVehicule}">Immatriculation du vehicule</td>
+            <td th:text="${Depanage.statutDepanage}"> Statut du depanage </td>
+            <td th:text="${Depanage.cout}"> cout </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div><br><br>
+
+<div class="bar container-fluid text-center border border-3 bg-dark p-2"></div>
+
+<div class="row container-fluid rowColor"><h2>Utilisateurs</h2>
+    <div class="col-md-10">
+        <table  class="table table-dark table-striped border border-0" th:border="1">
+            <thead>
+                <tr>
+                    <th scope="col">Noms</th>
+                    <th scope="col">Prenoms</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="User:${Users}">
+                    <td th:text="${User.nom}"></td>
+                    <td th:text="${User.prenom}"></td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="container-fluid col-md-1  ">
+    <div class="container-fluid ">
+        <div class=" container-fluid "  >
+            <a class=" btn btn-primary "  href="http://localhost:8086/saveUser" >AJOUTER</a>
+         </div><br><br>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</html>
